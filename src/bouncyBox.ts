@@ -5,12 +5,10 @@ import { Updatable } from "./updatable";
 export class BouncyBox implements Drawable, Updatable {
     pos: Vector;
     vel: Vector;
-    p: p5;
     color: string;
     static colors: string[] = ["white", "red", "blue", "green", "magenta"];
 
-    constructor(p: p5) {
-        this.p = p;
+    constructor(private p: p5) {
         this.pos = new Vector();
         this.pos.x = p.width / 2;
         this.pos.y = p.height / 2;
