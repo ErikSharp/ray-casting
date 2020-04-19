@@ -54,11 +54,11 @@ export class Ray {
         this.dir.normalize();
     }
 
-    // draw() {
-    //     this.p.stroke(255);
-    //     this.p.push();
-    //     this.p.translate(this.pos.x, this.pos.y);
-    //     this.p.line(0, 0, this.dir.x * 100, this.dir.y * 100);
-    //     this.p.pop();
-    // }
+    draw() {
+        this.p.stroke(100, 0, 100);
+        this.p.push();
+        this.p.translate(this.pos.x, this.pos.y);
+        this.p.line(0, 0, this.dir.x * 10000, this.dir.y * 10000);
+        this.p.pop();
+    }
 }
