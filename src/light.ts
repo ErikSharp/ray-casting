@@ -40,10 +40,14 @@ export class Light implements Updatable, Drawable {
             });
 
             if (closest) {
-                this.p.fill(255);
+                this.p.push();
+                this.p.noStroke();
+                let ellipseSize = this.p.min((1 / minDistance) * 400, 7);
+                this.p.ellipse(closest.x, closest.y, ellipseSize);
+                this.p.pop();
+
                 this.p.stroke(200);
                 this.p.line(this.pos.x, this.pos.y, closest.x, closest.y);
-                this.p.ellipse(closest.x, closest.y, 4);
             } else {
                 ray.draw();
             }

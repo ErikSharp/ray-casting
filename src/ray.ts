@@ -55,7 +55,7 @@ export class Ray {
     }
 
     draw() {
-        this.p.stroke(100, 0, 100);
+        this.p.stroke(50);
         this.p.push();
         this.p.translate(this.pos.x, this.pos.y);
         this.p.line(0, 0, this.dir.x * 10000, this.dir.y * 10000);

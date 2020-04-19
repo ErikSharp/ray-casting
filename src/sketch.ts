@@ -12,6 +12,11 @@ export class Sketch implements Drawable, Updatable {
         p.createCanvas(innerWidth * 0.8, innerHeight * 0.8);
 
         let walls: Boundary[] = [];
+
+        let light = new Light(p, walls);
+        this.updatables.push(light);
+        this.drawables.push(light);
+
         for (let i = 0; i < 5; i++) {
             let wall = new Boundary(
                 p,
@@ -23,10 +28,6 @@ export class Sketch implements Drawable, Updatable {
             walls.push(wall);
             this.drawables.push(wall);
         }
-
-        let light = new Light(p, walls);
-        this.updatables.push(light);
-        this.drawables.push(light);
     }
 
     update() {
