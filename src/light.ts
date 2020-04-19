@@ -22,6 +22,7 @@ export class Light implements Updatable, Drawable {
     }
 
     draw() {
+        this.p.colorMode(this.p.HSB);
         this.p.fill(255);
         this.p.ellipse(this.pos.x, this.pos.y, 16);
 
@@ -46,7 +47,12 @@ export class Light implements Updatable, Drawable {
                 this.p.ellipse(closest.x, closest.y, ellipseSize);
                 this.p.pop();
 
-                this.p.stroke(200);
+                let maxHueDist = this.p.constrain(minDistance, 10, 300);
+                let hue = this.p.map(maxHueDist, 10, 300, 0, 230);
+
+                console.log(hue);
+                //let hue = 230;
+                this.p.stroke(hue, 255, 255);
                 this.p.line(this.pos.x, this.pos.y, closest.x, closest.y);
             } else {
                 ray.draw();
