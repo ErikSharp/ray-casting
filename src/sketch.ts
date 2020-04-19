@@ -18,14 +18,9 @@ export class Sketch implements Drawable, Updatable {
         this.drawables.push(light);
 
         for (let i = 0; i < 5; i++) {
-            let wall = new Boundary(
-                p,
-                p.random(p.width),
-                p.random(p.height),
-                p.random(p.width),
-                p.random(p.height)
-            );
+            let wall = new Boundary(p);
             walls.push(wall);
+            this.updatables.push(wall);
             this.drawables.push(wall);
         }
     }
