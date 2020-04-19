@@ -23,8 +23,6 @@ export class Light implements Updatable, Drawable {
 
     draw() {
         this.p.colorMode(this.p.HSB);
-        this.p.fill(255);
-        this.p.ellipse(this.pos.x, this.pos.y, 16);
 
         this.rays.forEach((ray) => {
             let closest: Vector = null;
