@@ -41,17 +41,16 @@ export class Light implements Updatable, Drawable {
             });
 
             if (closest) {
+                let maxHueDist = this.p.constrain(minDistance, 10, 300);
+                let hue = this.p.map(maxHueDist, 10, 300, 0, 230);
+
                 this.p.push();
+                this.p.fill(hue, 255, 255);
                 this.p.noStroke();
                 let ellipseSize = this.p.min((1 / minDistance) * 400, 7);
                 this.p.ellipse(closest.x, closest.y, ellipseSize);
                 this.p.pop();
 
-                let maxHueDist = this.p.constrain(minDistance, 10, 300);
-                let hue = this.p.map(maxHueDist, 10, 300, 0, 230);
-
-                console.log(hue);
-                //let hue = 230;
                 this.p.stroke(hue, 255, 255);
                 this.p.line(this.pos.x, this.pos.y, closest.x, closest.y);
             } else {
