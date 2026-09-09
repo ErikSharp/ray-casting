@@ -1,11 +1,11 @@
-import p5, { Vector } from "p5";
+import p5 from "p5";
 import { Drawable } from "./drawable";
 import { Updatable } from "./updatable";
 import { Ray } from "./ray";
 import { Boundary } from "./boundary";
 
 export class Light implements Updatable, Drawable {
-    pos: Vector;
+    pos: p5.Vector;
     rays: Ray[];
 
     constructor(private p: p5, private walls: Boundary[]) {
@@ -25,12 +25,12 @@ export class Light implements Updatable, Drawable {
         this.p.colorMode(this.p.HSB);
 
         this.rays.forEach((ray) => {
-            let closest: Vector = null;
+            let closest: p5.Vector = null;
             let minDistance = Infinity;
             this.walls.forEach((wall) => {
                 let pt = ray.cast(wall);
                 if (pt) {
-                    let dist = Vector.dist(this.pos, pt);
+                    let dist = p5.Vector.dist(this.pos, pt);
                     if (dist < minDistance) {
                         minDistance = dist;
                         closest = pt;

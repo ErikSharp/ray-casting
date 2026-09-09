@@ -1,13 +1,13 @@
-import p5, { Vector } from "p5";
+import p5 from "p5";
 import { Boundary } from "./boundary";
 
 export class Ray {
     pos: p5.Vector;
     dir: p5.Vector;
 
-    constructor(private p: p5, pos: Vector, angle: number) {
+    constructor(private p: p5, pos: p5.Vector, angle: number) {
         this.pos = pos;
-        this.dir = Vector.fromAngle(angle);
+        this.dir = p5.Vector.fromAngle(angle);
     }
 
     cast(wall: Boundary) {

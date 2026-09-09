@@ -1,4 +1,4 @@
-import p5, { Vector } from "p5";
+import p5 from "p5";
 import { Updatable } from "./updatable";
 import { Drawable } from "./drawable";
 
@@ -6,8 +6,8 @@ export class Boundary implements Updatable, Drawable {
     private static Offsets = 0;
     private xOffset = 0;
     private updateOffset = 0;
-    a: Vector;
-    b: Vector;
+    a: p5.Vector;
+    b: p5.Vector;
 
     constructor(private p: p5) {
         this.a = p.createVector();
